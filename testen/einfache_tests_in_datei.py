@@ -9,6 +9,14 @@ def block_test_msg(block_index: str, fehler: Exception = None) -> None:
         f"\^_^/ Tests im {block_index} Block bestanden!\n"
     )
 
+def func_test_msg(func_name: str, fehler: Exception = None) -> None:
+    # Wenn fehler, dann wurde eine Exception geworfen, also ist der Test nicht erfolgreich gewesen.
+    print(
+        f"v_v' Fehler in Funktion {func_name}()! << {fehler} >>\n"
+    ) if fehler else print(
+        f"\^_^/ Tests in Funktion {func_name}() bestanden!\n"
+    )
+
 
 if __name__ == '__main__':
     # Erstelle TestCase
