@@ -16,6 +16,8 @@ import testen.einfache_tests_in_datei as tmsg
 """Loesung: decorator"""
 
 
+test = TestCase()
+
 def mein_test_simple(func):
     """Dekoratoraufruf ohne Argumente"""
     globals()['test'] = TestCase()
@@ -33,8 +35,6 @@ def mein_test_simple(func):
 
 def mein_test_mit_prognose(ziel: bool | None = None):
     """Dekorator aufruf mit Ziel"""
-    globals()['test'] = TestCase()
-
     def decorator(func):
         def wrapper(*args, **kwargs):
             funktions_name = func.__name__
@@ -49,7 +49,7 @@ def mein_test_mit_prognose(ziel: bool | None = None):
                 tmsg.func_test_msg(funktions_name)
             except AssertionError as e:
                 print("\tWie erwartet!" if not ziel_arg else "\tDas ist unerwartet!")
-                tmsg.func_test_msg(block_index, e)
+                tmsg.func_test_msg(funktions_name, e)
         return wrapper
     return decorator
 
