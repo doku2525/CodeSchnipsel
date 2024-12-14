@@ -60,6 +60,7 @@ def elemente_der_zeitspanne():
     test.assertEqual(0, mein_timedelta.microseconds)
     test.assertEqual(3.5 * 24 * 60 * 60, mein_timedelta.total_seconds())
 
+
 @mein_test_mit_prognose(True)
 def rechnen_mit_datum_und_zeitspanne_und_ausgabe_als_isostring():
     print(f" {datum + zeit_stunden = }")
@@ -80,7 +81,7 @@ def rechnen_mit_datum_und_zeitspanne_und_ausgabe_als_isostring():
     test.assertIsInstance((datum + zeit_stunden).isoformat(), str)
     test.assertNotEqual((datum + zeit_stunden).isoformat(), "2000-01-01 01:00:00")
     test.assertEqual((datum + zeit_stunden).strftime('%Y-%m-%d %H:%M:%S'),
-                        "2000-01-01 01:00:00")
+                     "2000-01-01 01:00:00")
     test.assertEqual(f"{datum + zeit_stunden:%Y-%m-%d %H:%M:%S}", "2000-01-01 01:00:00")
 
 
