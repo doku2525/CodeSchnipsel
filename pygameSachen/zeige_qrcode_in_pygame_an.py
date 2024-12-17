@@ -22,10 +22,16 @@ def display_qr_code(img):
     """
 
     pygame.init()
-    screen = pygame.display.set_mode(img.size)   # (320,320)
+    # Es gibt zwei Moeglichkeiten, die groesse des QR-Codes abzufragen
+    #   x, y = img.size => vom PIL-Image
+    #   x, y = pygame_img.get_size() => vom PyGame-Image
+    print(f"{img.size =}")
+    screen = pygame.display.set_mode(img.size)
     pygame.display.set_caption("QR-Code")
 
     pygame_img = generate_pygame_image(img)
+    print(f"{pygame_img.get_size() =}")
+
     screen.blit(pygame_img, (0, 0))
 
     running = True
