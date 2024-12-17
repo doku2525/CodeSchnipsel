@@ -1,9 +1,14 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
 import pygame
-import qrcode
 from tkinterSachen.qrcode_in_einem_tkinter_infobox_anzeigen import generate_qr_code
 
+if TYPE_CHECKING:
+    from PIL import Image
+    from pygame import Surface
 
-def generate_pygame_image(img):
+
+def generate_pygame_image(img: Image) -> Surface:
 
     # Konvertiere das PIL-Image in ein Pygame-Surface
     img = img.convert("RGBA")
@@ -14,7 +19,7 @@ def generate_pygame_image(img):
     return pygame_img
 
 
-def display_qr_code(img):
+def display_qr_code(img: Image) -> None:
     """Zeigt das QR-Code-Bild in einem Pygame-Fenster an.
 
     Args:
@@ -49,4 +54,3 @@ if __name__ == "__main__":
     url = "https://www.example.com"
     pil_img = generate_qr_code(url)
     display_qr_code(pil_img)
-

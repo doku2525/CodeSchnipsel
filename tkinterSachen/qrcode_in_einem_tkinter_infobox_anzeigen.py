@@ -3,7 +3,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 
 
-def generate_qr_code(data):
+def generate_qr_code(data: str) -> Image:
     """Generiert einen QR-Code und gibt ihn als PIL-Image zurück.
 
     Args:
@@ -24,7 +24,7 @@ def generate_qr_code(data):
     return img
 
 
-def show_qr_code_in_tkinter(img):
+def show_qr_code_in_tkinter(img: Image) -> None:
     """Zeigt den QR-Code in einem Tkinter-Fenster an.
     Kann mit <q>, <ESC> oder <Enter> geschlossen werden.
 
